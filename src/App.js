@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Navbar from './components/global-components/navbar.component';
 import PostList from './components/page-components/post-list.component';
 import AddPost from './components/page-components/add-post.component';
+import EditPost from './components/page-components/edit-post.component';
 import AddAuthor from './components/page-components/add-author.component';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Navbar></Navbar>
       <br></br>
       <Route path="/" exact component={PostList} />
+      <Route path="/edit/:id" component={EditPost} />
       <Route path="/add/post" component={AddPost} />
       <Route path="/add/author" component={AddAuthor} />
     </Router>
