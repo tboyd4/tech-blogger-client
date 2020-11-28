@@ -26,6 +26,8 @@ export default class PostList extends Component {
   constructor(props) {
     super(props);
 
+    this.deletePost = this.deletePost.bind(this);
+
     this.state = {
       posts: [],
     };
@@ -61,6 +63,6 @@ export default class PostList extends Component {
   }
 
   render() {
-    return <div>{this.postList()}</div>;
+    return <div>{this.postsList()}</div>;
   }
 }
