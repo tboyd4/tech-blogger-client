@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Post = (props) => (
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{props.post.title}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{props.post.description}</h6>
-      <p class="card-text">{props.post.postText}</p>
-      <Link to={"/edit/" + props.post._id} class="card-link">
+  <div className="card">
+    <div className="card-body">
+      <h5 className="card-title">{props.post.title}</h5>
+      <h6 className="card-subtitle mb-2 text-muted">{props.post.description}</h6>
+      <p className="card-text">{props.post.postText}</p>
+      <Link to={"/edit/" + props.post._id} className="card-link">
         Edit Post
       </Link>
       <a
         href="#"
-        class="card-link"
+        className="card-link"
         onClick={() => props.deletePost(props.post._id)}
       >
         Delete Post
