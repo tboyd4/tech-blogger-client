@@ -6,6 +6,7 @@ const Post = (props) => (
   <div className="card my-2 py-1 shadow">
     <div className="card-body">
       <h5 className="card-title">{props.post.title}</h5>
+      <p className="mb-3">by: {props.post.author}</p>
       <h6 className="card-subtitle mb-2 text-muted">
         {props.post.description}
       </h6>
@@ -15,7 +16,7 @@ const Post = (props) => (
       </Link>
       <a
         href="#"
-        className="card-link"
+        className="card-link text-danger"
         onClick={() => {
           props.deletePost(props.post._id);
         }}
