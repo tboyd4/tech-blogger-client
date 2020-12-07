@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Footer from "../../components/global-components/footer.component";
 
 const Post = (props) => (
   <div className="card my-2 py-1 shadow">
@@ -68,6 +69,11 @@ export default class PostList extends Component {
   }
 
   render() {
-    return <div>{this.postsList()}</div>;
+    return (
+      <div>
+        <div>{this.postsList()}</div>
+        <Footer></Footer>
+      </div>
+    );
   }
 }

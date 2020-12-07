@@ -17,11 +17,13 @@ function App() {
     <Router>
       <Navbar></Navbar>
       <br></br>
-      <div className="container">
-        <Route path="/" exact component={PostList} />
-        <Route path="/edit/:id" component={EditPost} />
-        <Route path="/add/post" component={AddPost} />
-        <Route path="/add/author" component={AddAuthor} />
+      <div id="wrap">
+        <div id="main" className="container clear-top">
+          <Route path="/" exact component={PostList} />
+          <Route path="/edit/:id" component={EditPost} />
+          <Route path="/add/post" component={AddPost} />
+          <Route path="/add/author" component={AddAuthor} />
+        </div>
       </div>
     </Router>
   );

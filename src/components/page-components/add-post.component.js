@@ -77,7 +77,7 @@ export default class AddPost extends Component {
           title: "",
           description: "",
           postText: "",
-          author: ""
+          author: "Tyler Boyd"
         });
       })
       .catch((err) => console.log(err));
