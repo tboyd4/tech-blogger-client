@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 export default class EditPost extends Component {
   constructor(props) {
@@ -21,25 +21,25 @@ export default class EditPost extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/posts/' + this.props.match.params.id)
-        .then(res => {
-            this.setState({
-                title: res.data.title,
-                description: res.data.description,
-                postText: res.data.postText,
-                author: res.data.author
-            })
-        })
-        .catch(err => console.log(err));
-
-    axios.get('http://localhost:5000/authors')
-      .then(res => {
-        if (res.data.length > 0) {
-          this.setState({
-            authors: res.data.map(author => author.fullname)
-          })
-        }
+    axios
+      .get("http://localhost:5000/posts/" + this.props.match.params.id)
+      .then((res) => {
+        this.setState({
+          title: res.data.title,
+          description: res.data.description,
+          postText: res.data.postText,
+          author: res.data.author,
+        });
       })
+      .catch((err) => console.log(err));
+
+    axios.get("http://localhost:5000/authors").then((res) => {
+      if (res.data.length > 0) {
+        this.setState({
+          authors: res.data.map((author) => author.fullname),
+        });
+      }
+    });
   }
 
   onChangeTitle(event) {
@@ -78,11 +78,16 @@ export default class EditPost extends Component {
 
     console.log(post);
 
-    axios.post('http://localhost:5000/posts/update/' + this.props.match.params.id, post)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err))
-
-    window.location = "/";
+    axios
+      .put(
+        "http://localhost:5000/posts/update/" + this.props.match.params.id,
+        post
+      )
+      .then((res) => {
+        console.log(res.data);
+        window.location = "/";
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -138,7 +143,11 @@ export default class EditPost extends Component {
             </select>
           </div>
           <div className="form-group">
-            <input type="submit" value="Edit Post" className="btn btn-primary" />
+            <input
+              type="submit"
+              value="Edit Post"
+              className="btn btn-primary"
+            />
           </div>
         </form>
       </div>
