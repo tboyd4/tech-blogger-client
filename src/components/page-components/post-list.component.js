@@ -6,7 +6,9 @@ const Post = (props) => (
   <div className="card">
     <div className="card-body">
       <h5 className="card-title">{props.post.title}</h5>
-      <h6 className="card-subtitle mb-2 text-muted">{props.post.description}</h6>
+      <h6 className="card-subtitle mb-2 text-muted">
+        {props.post.description}
+      </h6>
       <p className="card-text">{props.post.postText}</p>
       <Link to={"/edit/" + props.post._id} className="card-link">
         Edit Post
@@ -14,7 +16,9 @@ const Post = (props) => (
       <a
         href="#"
         className="card-link"
-        onClick={() => props.deletePost(props.post._id)}
+        onClick={() => {
+          props.deletePost(props.post._id);
+        }}
       >
         Delete Post
       </a>
@@ -52,7 +56,7 @@ export default class PostList extends Component {
 
   deletePost(id) {
     axios
-      .delete("http://localhost:5000/post/" + id)
+      .delete("http://localhost:5000/posts/" + id)
       .then((res) => {
         console.log(res.data);
         this.setState({
